@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar Parágrafos</title>
+</head>
+<body>
+    <div id="main">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+    <button onclick="contarParagrafos()">Contar Parágrafos</button>
+    <div id="resultado"></div>
+
+    <script>
+        function contarParagrafos() {
+            var divEscolhida = document.getElementById("main");
+            var paragrafos = divEscolhida.getElementsByTagName("p");
+            var numeroDeParagrafos = paragrafos.length;
+
+            var divResultado = document.getElementById("resultado");
+            divResultado.innerHTML = "Número de parágrafos: " + numeroDeParagrafos;
+        }
+    </script>
+</body>
+</html>

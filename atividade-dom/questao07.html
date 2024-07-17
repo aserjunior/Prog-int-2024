@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copiar Texto em Caixa Alta</title>
+    
+</head>
+<body>
+    <h1>Copiar Texto em Caixa Alta</h1>
+    <label for="caixaOrigem">Insira o texto:</label>
+    <input type="text" id="caixaOrigem">
+    <button onclick="copiarParaCaixaAlta()">Copiar</button>
+    <br><br>
+    <label for="caixaDestino">Texto em Caixa Alta:</label>
+    <input type="text" id="caixaDestino" readonly>
+    <script>
+        function copiarParaCaixaAlta() {
+            var textoOrigem = document.getElementById("caixaOrigem").value;
+            var textoCaixaAlta = textoOrigem.toUpperCase();
+            document.getElementById("caixaDestino").value = textoCaixaAlta;
+        }
+    </script>
+</body>
+</html>
