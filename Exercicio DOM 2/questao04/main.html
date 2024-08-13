@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Imagem</title>
+</head>
+<body>
+    <h1>Carregue uma Imagem</h1>
+    
+    <input type="file" id="uploadImagem" accept="image/*">
+
+    <button id="carregarImagem">Carregar Imagem</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('carregarImagem').addEventListener('click', function() {
+            var arquivoSelecionado = document.getElementById('uploadImagem').files[0];
+            
+            if (arquivoSelecionado) {
+                var img = document.createElement('img');
+                
+                img.src = URL.createObjectURL(arquivoSelecionado);
+
+                var resultado = document.getElementById('resultado');
+
+                resultado.innerHTML = '';
+
+                resultado.appendChild(img);
+            } else {
+                alert('Por favor, selecione um arquivo de imagem.');
+            }
+        });
+    </script>
+</body>
+</html>

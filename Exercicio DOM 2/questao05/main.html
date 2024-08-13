@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Imagem</title>
+</head>
+<body>
+    <h1>Selecione uma Imagem</h1>
+
+    <select id="seletorImagem">
+        <option value="">Selecione uma imagem</option>
+        <option value="https://via.placeholder.com/150/FF0000/FFFFFF?text=Imagem+1">Imagem 1</option>
+        <option value="https://via.placeholder.com/150/00FF00/FFFFFF?text=Imagem+2">Imagem 2</option>
+        <option value="https://via.placeholder.com/150/0000FF/FFFFFF?text=Imagem+3">Imagem 3</option>
+    </select>
+
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('seletorImagem').addEventListener('change', function() {
+            var urlImagem = this.value;
+
+            if (urlImagem) {
+                var img = document.createElement('img');
+                
+                img.src = urlImagem;
+
+                var resultado = document.getElementById('resultado');
+                
+                resultado.innerHTML = '';
+
+                resultado.appendChild(img);
+            } else {
+                document.getElementById('resultado').innerHTML = '';
+            }
+        });
+    </script>
+</body>
+</html>

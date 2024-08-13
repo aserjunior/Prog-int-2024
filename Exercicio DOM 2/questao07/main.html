@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Hashtags Populares</title>
+</head>
+<body>
+    <h1>Adicionar Hashtags Populares</h1>
+
+    <input type="text" id="inputHashtag" placeholder="Digite uma hashtag">
+    
+    <button id="adicionarHashtag">Adicionar Hashtag</button>
+
+    <button id="removerHashtag">Remover Hashtag Selecionada</button>
+
+    <select id="listaHashtags" size="5"></select>
+
+    <script>
+        function hashtagJaExiste(hashtag, selectElement) {
+            for (let i = 0; i < selectElement.options.length; i++) {
+                if (selectElement.options[i].text === hashtag) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        document.getElementById('adicionarHashtag').addEventListener('click', function() {
+            var hashtag = document.getElementById('inputHashtag').value.trim();
+            var selectElement = document.getElementById('listaHashtags');
+
+            if (hashtag === '') {
+                alert('Por favor, digite uma hashtag.');
+            } else if (hashtag.length < 2) {
+                alert('A hashtag deve ter pelo menos 2 caracteres.');
+            } else if (hashtagJaExiste(hashtag, selectElement)) {
+                alert('Essa hashtag já foi adicionada.');
+            } else if (selectElement.options.length >= 5) {
+                alert('Não é possível adicionar mais de 5 hashtags.');
+            } else {
+                var option = document.createElement('option');
+                option.textContent = hashtag;
+                selectElement.appendChild(option);
+                document.getElementById('inputHashtag').value = '';
+            }
+        });
+
+        document.getElementById('removerHashtag').addEventListener('click', function() {
+            var selectElement = document.getElementById('listaHashtags');
+            var selectedOption = selectElement.selectedOptions[0];
+
+            if (selectedOption) {
+                selectElement.removeChild(selectedOption);
+            } else {
+                alert('Por favor, selecione uma hashtag para remover.');
+            }
+        });
+    </script>
+</body>
+</html>
